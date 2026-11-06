@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: smart-krishi-backend
+    name: smart-krishi
     env: python
-    region: singapore
+    region: oregon
     plan: free
-    buildCommand: "pip install -r backend/requirements.txt"
-    startCommand: "python backend/app.py"
+    buildCommand: "pip install -r backend/requirements.txt && cd frontend && npm install && npm run build"
+    startCommand: "gunicorn --chdir backend --bind 0.0.0.0:$PORT \"app:create_app()\""
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.8
@@ -13,15 +13,3 @@ services:
         generateValue: true
       - key: FLASK_ENV
         value: production
-      - key: DATABASE_URL
-        fromDatabase:
-          name: smart-krishi-db
-          property: connectionString
-
-databases:
-  - name: smart-krishi-db
-    databaseName: smart_krishi
-    user: krishi_user
-    plan: free
-    region: singapore
-
