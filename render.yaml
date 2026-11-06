@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: smart-krishi-backend
+    env: python
+    region: singapore
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "python backend/app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: smart-krishi-db
+          property: connectionString
+
+databases:
+  - name: smart-krishi-db
+    databaseName: smart_krishi
+    user: krishi_user
+    plan: free
+    region: singapore
+

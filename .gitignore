@@ -1,0 +1,11 @@
+node_modules/
+dist/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+smart_krishi.db
+.DS_Store
+*.log
+

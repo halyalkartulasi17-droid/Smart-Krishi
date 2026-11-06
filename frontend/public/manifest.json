@@ -1,0 +1,17 @@
+{
+  "short_name": "SmartKRISHI",
+  "name": "Smart KRISHI — Agricultural Intelligence & Mandi Platform",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#052e16",
+  "theme_color": "#15803d",
+  "display": "standalone",
+  "orientation": "portrait"
+}
+
